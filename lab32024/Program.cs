@@ -1,84 +1,57 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace lab32024
+namespace task2_lab3_2024
 {
     internal class Program
     {
+        public static double currentTerm;  // Поточний член ряду
+        public static double x = (Math.PI / 16);
+        public static double epsilon = Math.Pow(10, -7);
+        public static double N = 1; //кількість етерацій
+        public static double error = 0;  // Відносна похибка
+        public static double S1 = 0;
         static void Main(string[] args)
         {
-            //task 1
-            /*
-            int n, m;
-
-            // Введення та перевірка значень n і m
-            do
+            FindNewError();             // Знаходимо нове значення
+            Console.WriteLine("Обчислення почалось");
+            while (error >= epsilon)    // Виконуємо код до тих пір коли значення буде менше заданої помилки
             {
-                Console.Write("Введіть натуральне число n: ");
-                n = Convert.ToInt32(Console.ReadLine());
-
-                Console.Write("Введіть натуральне число m (m повинно бути більше n): ");
-                m = Convert.ToInt32(Console.ReadLine());
-
-                if (n <= 0 || m <= 0)
-                {
-                    Console.WriteLine("Числа повинні бути натуральними (більшими за 0). Спробуйте ще раз.");
-                }
-                else
-                {
-                    Console.WriteLine("Число m повинно бути більше за n. Спробуйте ще раз.");
-                }
-            } while (n <= 0 || m <= 0 || n >= m);
-
-            // Обчислення суми чисел від n до m
-            int sum = 0;
-            for (int i = n; i <= m; i++)
-            {
-                sum += i;
+                FindNewError();         // Знаходимо нове значення
             }
-
-            // Виведення результату
-            Console.WriteLine($"Сума чисел від {n} до {m} дорівнює: {sum}");
-            */
-            //the end of task 1
-            //task 2
-            // Задана відносна похибка
-            Console.Write("Введіть максимальну допустиму похибку: ");
-            double epsilon = Convert.ToDouble(Console.ReadLine());
-
-            double S1 = 0;  // Накопичена сума
-            int iteration = 1;  // Номер ітерації
-            double currentTerm;  // Поточний член ряду
-            double error;  // Відносна похибка
-
-            do
-            {
-                // Обчислення поточного члена ряду a_k (залежить від конкретного ряду)
-                currentTerm = 1.0 / iteration;  // Наприклад, для ряду Гармонічного: 1/k
-
-                // Додаємо поточний член до накопиченої суми
-                S1 += currentTerm;
-
-                // Обчислення відносної похибки
-                error = Math.Abs(currentTerm / S1);
-
-                // Виведення результатів для поточної ітерації
-                Console.WriteLine($"Ітерація: {iteration}");
-                Console.WriteLine($"Поточний член ряду (a_{iteration}): {currentTerm}");
-                Console.WriteLine($"Накопичена сума ряду (S1): {S1}");
-                Console.WriteLine($"Досягнута похибка: {error}");
-                Console.WriteLine();
-
-                iteration++;  // Перехід до наступної ітерації
-            } while (error > epsilon);  // Умова продовження: похибка більше заданої
-
-            Console.WriteLine("Обчислення завершено.");
-
-            //the end of task 2
+            N--;                        // Віднімаємо після останього перевіреного значення
+            Console.WriteLine("Обчислення завершено.{0}", N);  // Виводимо в консоль кількість ітерацій і повідомлення про завершення розрахунку
+            Console.WriteLine($"Поточний член ряду (a_{N}): {currentTerm}");
+            Console.WriteLine($"Накопичена сума ряду (S1): {S1}");
+            Console.WriteLine($"Досягнута похибка: {error}");
             Console.ReadKey();
         }
+        static void FindNewError() // Знаходимо нове значення 
+        {
+            currentTerm = (Math.Pow(-1, (N - 1)) * Math.Pow(x, (2 * N - 1))) / Factorial(2 * N + 1);
+            // Додаємо поточний член до накопиченої суми
+            S1 += currentTerm;
+
+            // Обчислення відносної похибки
+            error = Math.Abs(currentTerm / S1);
+            N++;
+        }
+        static long Factorial(double n)
+        {
+            long result = 1;
+            if(n > 0)
+            {
+                for (int i = 1; i <= n; i++) 
+                {
+                    result *= i; // Ітерація
+                }
+            }
+            return result;
+        }// Знаходження факторіала числа
     }
 }
