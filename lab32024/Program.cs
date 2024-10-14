@@ -6,7 +6,7 @@ using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
 
-/*
+
 namespace task1_lab3_2024
 {
     internal partial class Program
@@ -30,7 +30,7 @@ namespace task1_lab3_2024
                 {
                     Console.WriteLine("Числа повинні бути натуральними (більшими за 0). Спробуйте ще раз.");
                 }
-                else
+                else if (n >= m)
                 {
                     Console.WriteLine("Число m повинно бути більше за n. Спробуйте ще раз.");
                 }
@@ -50,7 +50,7 @@ namespace task1_lab3_2024
         }
     }
 }
-*/
+
 
 /*
 namespace task2_lab3_2024
@@ -104,7 +104,7 @@ namespace task2_lab3_2024
 }
 */
 
-
+/*
 namespace task3_lab3_2024
 {
     internal partial class Program
@@ -125,7 +125,6 @@ namespace task3_lab3_2024
                 // Обчислюємо значення функцій
                 double y = 1 / x;
                 double z = Math.Pow(x / 3, 2);
-
                 // Виводимо результати в консоль
                 Console.WriteLine($"{x:F1}      {y:F4}          {z:F4}");
             }
@@ -134,3 +133,4 @@ namespace task3_lab3_2024
         }
     }
 }
+*/
