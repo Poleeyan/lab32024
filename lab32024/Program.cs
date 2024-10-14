@@ -6,7 +6,7 @@ using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
 
-
+/*
 namespace task1_lab3_2024
 {
     internal partial class Program
@@ -20,19 +20,19 @@ namespace task1_lab3_2024
             // Введення та перевірка значень n і m
             do
             {
-                Console.Write("Введіть натуральне число n: ");
+                Console.Write("Введiть натуральне число n: ");
                 n = Convert.ToInt32(Console.ReadLine());
 
-                Console.Write("Введіть натуральне число m (m повинно бути більше n): ");
+                Console.Write("Введiть натуральне число m (m повинно бути бiльше n): ");
                 m = Convert.ToInt32(Console.ReadLine());
 
                 if (n <= 0 || m <= 0)
                 {
-                    Console.WriteLine("Числа повинні бути натуральними (більшими за 0). Спробуйте ще раз.");
+                    Console.WriteLine("Числа повиннi бути натуральними (бiльшими за 0). Спробуйте ще раз.");
                 }
                 else if (n >= m)
                 {
-                    Console.WriteLine("Число m повинно бути більше за n. Спробуйте ще раз.");
+                    Console.WriteLine("Число m повинно бути бiльше за n. Спробуйте ще раз.");
                 }
             } while (n <= 0 || m <= 0 || n >= m);
 
@@ -44,13 +44,13 @@ namespace task1_lab3_2024
             }
 
             // Виведення результату
-            Console.WriteLine($"Сума чисел від {n} до {m} дорівнює: {sum}");
+            Console.WriteLine($"Сума чисел вiд {n} до {m} дорiвнює: {sum}");
             Console.ReadKey();
             //the end of task 1
         }
     }
 }
-
+*/
 
 /*
 namespace task2_lab3_2024
@@ -72,7 +72,7 @@ namespace task2_lab3_2024
                 FindNewError();         // Знаходимо нове значення
             }
             N--;                        // Віднімаємо після останього перевіреного значення
-            Console.WriteLine($"Обчислення завершено, кількість ітерацій: {N}");  // Виводимо в консоль кількість ітерацій і повідомлення про завершення розрахунку
+            Console.WriteLine($"Обчислення завершено, кiлькiсть iтерацiй: {N}");  // Виводимо в консоль кількість ітерацій і повідомлення про завершення розрахунку
             Console.WriteLine($"Поточний член ряду (a_{N}): {currentTerm}");
             Console.WriteLine($"Накопичена сума ряду (S1): {S1}");
             Console.WriteLine($"Досягнута похибка: {error}");
@@ -104,7 +104,7 @@ namespace task2_lab3_2024
 }
 */
 
-/*
+
 namespace task3_lab3_2024
 {
     internal partial class Program
@@ -115,7 +115,7 @@ namespace task3_lab3_2024
             double a = 0.5;
             double b = 4.0;
             double h = 0.1;
-            Console.WriteLine("Значення функцій y = 1/x та z = (x/3)^2 на відрізку [0.5; 4] з кроком h = 0.1:");
+            Console.WriteLine("Значення функцiй y = 1/x та z = (x/3)^2 на вiдрiзку [0.5; 4] з кроком h = 0.1:");
             Console.WriteLine("---------------------------------------------------");
             Console.WriteLine("    x         y = 1/x         z = (x/3)^2");
             Console.WriteLine("---------------------------------------------------");
@@ -133,4 +133,3 @@ namespace task3_lab3_2024
         }
     }
 }
-*/
