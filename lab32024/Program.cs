@@ -52,24 +52,38 @@ namespace task1_lab3_2024
 }
 */
 
-/*
+
 namespace task2_lab3_2024
 {
     internal class Program
     {
-        public static double currentTerm;  // Поточний член ряду
-        public static double x = (Math.PI / 16);
-        public static double epsilon = Math.Pow(10, -7);
-        public static double N = 1; //кількість етерацій
-        public static double error = 0;  // Відносна похибка
-        public static double S1 = 0;
-        static void Main(string[] args)
+        static dynamic Main(string[] args)
         {
-            FindNewError();             // Знаходимо нове значення
+            double currentTerm;  // Поточний член ряду
+            double x = (Math.PI / 16);
+            double epsilon = Math.Pow(10, -7);
+            double N = 1; //кількість етерацій
+            double error = 0;  // Відносна похибка
+            double S1 = 0;
+            double n = 1;
             Console.WriteLine("Обчислення почалось");
+            dynamic result = 1;
+            if (n > 0)
+            {
+                for (int i = 1; i <= n; i++)
+                {
+                    result *= i; // Ітерація
+                }
+            }
+            return result;
             while (error >= epsilon)    // Виконуємо код до тих пір коли значення буде менше заданої помилки
             {
-                FindNewError();         // Знаходимо нове значення
+                currentTerm = (Math.Pow(-1, (N - 1)) * Math.Pow(x, (2 * N - 1))) / result(2 * N + 1);
+                // Додаємо поточний член до накопиченої суми
+                S1 += currentTerm;
+                // Обчислення відносної похибки
+                error = Math.Abs(currentTerm / S1);
+                N++;
             }
             N--;                        // Віднімаємо після останього перевіреного значення
             Console.WriteLine($"Обчислення завершено, кiлькiсть iтерацiй: {N}");  // Виводимо в консоль кількість ітерацій і повідомлення про завершення розрахунку
@@ -78,33 +92,11 @@ namespace task2_lab3_2024
             Console.WriteLine($"Досягнута похибка: {error}");
             Console.ReadKey();
         }
-        static void FindNewError() // Знаходимо нове значення 
-        {
-            currentTerm = (Math.Pow(-1, (N - 1)) * Math.Pow(x, (2 * N - 1))) / Factorial(2 * N + 1);
-            // Додаємо поточний член до накопиченої суми
-            S1 += currentTerm;
-
-            // Обчислення відносної похибки
-            error = Math.Abs(currentTerm / S1);
-            N++;
-        }
-        static long Factorial(double n)
-        {
-            long result = 1;
-            if(n > 0)
-            {
-                for (int i = 1; i <= n; i++) 
-                {
-                    result *= i; // Ітерація
-                }
-            }
-            return result;
-        }// Знаходження факторіала числа
     }
 }
-*/
 
 
+/*
 namespace task3_lab3_2024
 {
     internal partial class Program
@@ -133,3 +125,4 @@ namespace task3_lab3_2024
         }
     }
 }
+*/
