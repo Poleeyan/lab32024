@@ -52,7 +52,7 @@ namespace task1_lab3_2024
 }
 */
 
-
+/*
 namespace task2_lab3_2024
 {
     internal class Program
@@ -94,7 +94,7 @@ namespace task2_lab3_2024
         }
     }
 }
-
+*/
 
 /*
 namespace task3_lab3_2024
@@ -107,18 +107,20 @@ namespace task3_lab3_2024
             double a = 0.5;
             double b = 4.0;
             double h = 0.1;
+            double x = a;
             Console.WriteLine("Значення функцiй y = 1/x та z = (x/3)^2 на вiдрiзку [0.5; 4] з кроком h = 0.1:");
             Console.WriteLine("---------------------------------------------------");
             Console.WriteLine("    x         y = 1/x         z = (x/3)^2");
             Console.WriteLine("---------------------------------------------------");
             // Цикл для обчислення значень функцій на кожному кроці
-            for (double x = a; x <= b; x += h)
+            while (x <= b)
             {
                 // Обчислюємо значення функцій
                 double y = 1 / x;
                 double z = Math.Pow(x / 3, 2);
+                x += h;
                 // Виводимо результати в консоль
-                Console.WriteLine($"{x:F1}      {y:F4}          {z:F4}");
+                Console.WriteLine($"{x:F1}      {y:F4}          {z:F4}"); 
             }
             Console.WriteLine("---------------------------------------------------");
             Console.ReadKey();
