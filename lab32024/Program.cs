@@ -57,36 +57,28 @@ namespace task2_lab3_2024
 {
     internal class Program
     {
-        static dynamic Main(string[] args)
+        static void Main()
         {
-            double currentTerm;  // Поточний член ряду
+            double currentTerm = 0;  // Поточний член ряду
             double x = (Math.PI / 16);
             double epsilon = Math.Pow(10, -7);
-            double N = 1; //кількість етерацій
-            double error = 0;  // Відносна похибка
+            double N = 1; //кількість ітерацій
+            double error = 1;  // Відносна похибка
             double S1 = 0;
-            double n = 1;
-            Console.WriteLine("Обчислення почалось");
-            dynamic result = 1;
-            if (n > 0)
+            while (error >= epsilon) // Виконуємо код до тих пір, поки значення буде більше заданої помилки
             {
-                for (int i = 1; i <= n; i++)
+                double factorial = 1;
+                for (int i = 1; i <= 2 * N + 1; i++) // Вычисляем факториал (2N + 1) прямо в цикле
                 {
-                    result *= i; // Ітерація
+                    factorial *= i;
                 }
+                currentTerm = (Math.Pow(-1, N - 1) * Math.Pow(x, 2 * N - 1)) / factorial; // Обчислюємо поточний член ряду
+                S1 += currentTerm; // Додаємо поточний член до накопиченої суми
+                error = Math.Abs(currentTerm / S1); // Обчислення відносної похибки
+                N++; // Збільшуємо кількість ітерацій
             }
-            return result;
-            while (error >= epsilon)    // Виконуємо код до тих пір коли значення буде менше заданої помилки
-            {
-                currentTerm = (Math.Pow(-1, (N - 1)) * Math.Pow(x, (2 * N - 1))) / result(2 * N + 1);
-                // Додаємо поточний член до накопиченої суми
-                S1 += currentTerm;
-                // Обчислення відносної похибки
-                error = Math.Abs(currentTerm / S1);
-                N++;
-            }
-            N--;                        // Віднімаємо після останього перевіреного значення
-            Console.WriteLine($"Обчислення завершено, кiлькiсть iтерацiй: {N}");  // Виводимо в консоль кількість ітерацій і повідомлення про завершення розрахунку
+            N--; // Віднімаємо після останього перевіреного значення
+            Console.WriteLine($"Кiлькiсть iтерацiй: {N}");
             Console.WriteLine($"Поточний член ряду (a_{N}): {currentTerm}");
             Console.WriteLine($"Накопичена сума ряду (S1): {S1}");
             Console.WriteLine($"Досягнута похибка: {error}");
@@ -96,7 +88,7 @@ namespace task2_lab3_2024
 }
 */
 
-/*
+
 namespace task3_lab3_2024
 {
     internal partial class Program
@@ -119,12 +111,10 @@ namespace task3_lab3_2024
                 double y = 1 / x;
                 double z = Math.Pow(x / 3, 2);
                 x += h;
-                // Виводимо результати в консоль
-                Console.WriteLine($"{x:F1}      {y:F4}          {z:F4}"); 
+                Console.WriteLine($"{x:F1}      {y:F4}          {z:F4}"); // Виводимо результати в консоль
             }
             Console.WriteLine("---------------------------------------------------");
             Console.ReadKey();
         }
     }
 }
-*/
